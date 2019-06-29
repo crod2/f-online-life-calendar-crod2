@@ -8,6 +8,14 @@ class App extends React.Component {
       date: [],
       smiley: []
     }
+
+    this.getValue = this.getValue.bind(this);
+  }
+
+
+  getValue(event) {
+    const inputValue = event.currentTarget.value;
+    console.log(inputValue);
   }
 
   render() {
@@ -22,7 +30,7 @@ class App extends React.Component {
 
           <div className="date__container">
             <label htmlFor="date">Fecha </label>
-            <input type="text" name="date" id="date"/>
+            <input type="text" name="date" id="date" onChange={this.getValue}/>
           </div>
 
           <div className="state__container">
