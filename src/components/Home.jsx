@@ -9,8 +9,14 @@ class Home extends React.Component {
       <div className="smiley__container">
         <Link to="/smileylist"><button className="btn__add">+</button></Link>
         <ul className="smiley__list">
-          {data.map(item => 
-            <li>{item.currentMood}</li>)}
+          {data.map((item, index) => 
+            <li className="smiley__item" key={index}>{item.currentMood === ":)" ?
+              <span className="happy">{item.currentMood}</span>
+              :
+              <span className="sad">{item.currentMood}</span>
+            }
+            </li>
+          )}
         </ul>
       </div>
     )

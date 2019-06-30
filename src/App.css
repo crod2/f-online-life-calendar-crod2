@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.smiley__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn__add {
+  background: rgba(70, 155, 207);
+  color: white;
+  border: none;
+  width: 100%;
+  font-size: 50px;
+  padding: 0;
+}
+
+.smiley__list {
+  padding: 0;
+  margin: 40px;
+}
+
+.smiley__item {
+  display: inline;
+  list-style: none;
+  font-size: 80px;
+  margin: 0 20px;
+}
+
+.happy {
+  color: black;
+  background: rgba(255, 205, 0);
+  padding: 10px 30px;
+  border-radius: 50%;
+}
+
+.sad {
+  color: white;
+  background: rgba(255, 77, 45);
+  padding: 10px 30px;
+  border-radius: 50%;
+}
+
+.calendar__container {
+  padding: 50px;
+}
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
