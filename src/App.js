@@ -7,12 +7,15 @@ class App extends React.Component {
     this.state = {
       data: [],
       date: "",
-      mood: ""
+      mood: "", 
+      message: ""
     }
 
     this.getData = this.getData.bind(this);
     this.getDate = this.getDate.bind(this);
     this.getMood = this.getMood.bind(this);
+    this.getMessage = this.getMessage.bind(this);
+
   }
 
   getDate(event) {
@@ -26,10 +29,15 @@ class App extends React.Component {
       this.setState({ mood: inputMood.value })
     }
   }
+
+  getMessage(event) {
+    const inputMessage = event.currentTarget.value;
+    this.setState({ message: inputMessage })
+  }
   
   getData() {
     this.setState(prevState => {
-      const newData = [...prevState.data, {currentDate : this.state.date, currentMood: this.state.mood}]
+      const newData = [...prevState.data, {currentDate : this.state.date, currentMood: this.state.mood, currentMessage : this.state.message }]
       return {data: newData};
     })
   }
@@ -59,17 +67,23 @@ class App extends React.Component {
             <label htmlFor="sad">:(</label>
           </div>
 
+          {this.state.mood === ":)" ? 
+            <div className="message__container">
+
+              <label htmlFor="message">Mensaje </label>
+
+              <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </div>
+            :
+            null
+          }
+
           <div className="buttons">
             <button className="btn__save" onClick={this.getData}>guardar</button>
             <button className="btn__cancel">cancelar</button>
           </div>
-
         </div>
-
       </div>
-      
-
-
     )
   }
 }
