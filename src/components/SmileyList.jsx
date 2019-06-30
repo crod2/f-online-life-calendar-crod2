@@ -40,7 +40,6 @@ class SmileyList extends React.Component {
         </div>
       </div>
     )
-  
   }
 }
 

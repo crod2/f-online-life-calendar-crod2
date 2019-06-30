@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import SmileyList from './SmileyList';
+import Home from './components/Home';
+import SmileyList from './components/SmileyList';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,13 +47,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { data, date, mood, message } = this.state;
+    const { data, mood } = this.state;
     const { getDate, getMood, getData } = this;
 
     return (
       <div className="App">
         <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render = { () => 
+            <Home data = {data} />} />
+            
             <Route path="/smileylist" render = { () => 
               <SmileyList getDate = {getDate} getMood = {getMood} getData = {getData} mood = {mood} /> } />
         </Switch>
