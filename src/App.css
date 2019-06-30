@@ -52,3 +52,29 @@ body {
   flex-direction: column;
   margin: 20px;
 }
+
+.btn__save {
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(70, 155, 207);
+  color: white;
+  border: none;
+  display: block;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.btn__cancel {
+  text-transform: capitalize;
+  text-decoration: none;
+  background: white;
+  color: grey;
+  border: none;
+  display: block;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+}

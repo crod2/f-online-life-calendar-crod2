@@ -10,7 +10,7 @@ class SmileyList extends React.Component {
 
         <div className="input__container">
           <label htmlFor="date">Fecha</label>
-          <input type="text" name="date" id="date" onChange={getDate} />
+          <input type="text" name="date" id="date" placeholder="21/04/2018" onChange={getDate} />
         </div>
 
         <div className="input__container">
@@ -29,7 +29,7 @@ class SmileyList extends React.Component {
 
             <label htmlFor="message">Mensaje</label>
 
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="¿Por qué es un buen día?"></textarea>
           </div>
           :
           null
