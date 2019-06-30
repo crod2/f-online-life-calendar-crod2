@@ -5,17 +5,33 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      date: [],
-      smiley: []
+      data: [],
+      date: "",
+      mood: ""
     }
 
-    this.getValue = this.getValue.bind(this);
+    this.getData = this.getData.bind(this);
+    this.getDate = this.getDate.bind(this);
+    this.getMood = this.getMood.bind(this);
   }
 
+  getDate(event) {
+    const inputDate = event.currentTarget.value;
+    this.setState({ date: inputDate })
+  }
 
-  getValue(event) {
-    const inputValue = event.currentTarget.value;
-    console.log(inputValue);
+  getMood(event) {
+    const inputMood = event.currentTarget;
+    if (inputMood.checked) {
+      this.setState({ mood: inputMood.value })
+    }
+  }
+  
+  getData() {
+    this.setState(prevState => {
+      const newData = [...prevState.data, {currentDate : this.state.date, currentMood: this.state.mood}]
+      return {data: newData};
+    })
   }
 
   render() {
@@ -30,21 +46,21 @@ class App extends React.Component {
 
           <div className="date__container">
             <label htmlFor="date">Fecha </label>
-            <input type="text" name="date" id="date" onChange={this.getValue}/>
+            <input type="text" name="date" id="date" onChange={this.getDate}/>
           </div>
 
           <div className="state__container">
             <label htmlFor="state">Estado </label>
 
-            <input type="checkbox" name="checkbox" id="happy" value=":)"/>
+            <input type="checkbox" name="checkbox" id="happy" value=":)" onClick={this.getMood}/>
             <label htmlFor="happy">:)</label>
 
-            <input type="checkbox" name="checkbox" id="sad" value=":("/>
+            <input type="checkbox" name="checkbox" id="sad" value=":(" onClick={this.getMood}/>
             <label htmlFor="sad">:(</label>
           </div>
 
           <div className="buttons">
-            <button className="btn__save">guardar</button>
+            <button className="btn__save" onClick={this.getData}>guardar</button>
             <button className="btn__cancel">cancelar</button>
           </div>
 
